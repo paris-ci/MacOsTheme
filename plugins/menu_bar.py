@@ -1,15 +1,11 @@
-import os
 from plugins.utils import utils
 
 
-
-def dark_mode(status:bool):
-
+def dark_mode(status: bool):
     if status:
         status = "true"
     else:
         status = "false"
-
 
     utils.exec_applescript(f"""
     tell application "System Events"
@@ -19,26 +15,12 @@ def dark_mode(status:bool):
     end tell""")
 
 
-
-def day():
-    dark_mode(False)
-    return True
-
-def night():
-    dark_mode(True)
-    return True
-
-
-def normal():
-    return False
-
-def apply_theme(thn:int):
-    if thn == 1:
-        return day()
-    elif thn == 2:
-        return night()
-    elif thn == 3:
-        return normal()
+def apply_theme(major, minor, location):
+    if major == 1:
+        dark_mode(False)
+    elif major == 2:
+        dark_mode(True)
     else:
         return False
 
+    return True

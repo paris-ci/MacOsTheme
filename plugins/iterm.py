@@ -4,27 +4,26 @@
 
 """
 
+
 def day():
     profile = "Light"
     print(f"\033]50;SetProfile={profile}\a")
 
     return True
 
+
 def night():
     profile = "Dark"
     print(f"\033]50;SetProfile={profile}\a")
     return True
 
-def normal():
-    pass
 
-def apply_theme(thn:int):
-    if thn == 1:
-        return day()
-    elif thn == 2:
-        return night()
-    elif thn == 3:
-        return normal()
+def apply_theme(major, minor, location):
+    if major == 1:
+        day()
+    elif major == 2:
+        night()
     else:
         return False
 
+    return True
